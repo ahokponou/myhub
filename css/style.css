@@ -1,0 +1,111 @@
+:root {
+    --dark: #1a1a1a;
+    --light: #fafafa;
+    --grey: #7a7a7a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: Helvetica, Arial, sans-serif;
+    width: 100dvw;
+    height: 100dvh;
+    overflow: hidden;
+    color: var(--dark);
+    background-color: var(--light);
+    background: center url('/images/wallpaper/w01.jpg');
+}
+
+.app {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 4px 0 rgba(26, 26, 26, .16);
+    background-color: rgba(250, 250, 250, .08);
+    backdrop-filter: blur(8px);
+    --webkit-backdrop-filter: blur(8px);
+}
+
+.search_container {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-group {
+    width: 100%;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.select_container,
+.search-query,
+.search-button {
+   font-size: 1rem;
+   padding: 1rem;
+}
+
+.select_container {
+    padding: .8rem;
+    color: var(--dark);
+    background-color: var(--dark);
+    border: 1px solid var(--dark);
+    border-top-left-radius: .9rem;
+    border-bottom-left-radius: .9rem;
+}
+
+.search-engines {
+    font-size: 1rem;
+    color: var(--light);
+    background-color: transparent;
+    border: transparent;
+}
+
+.search-query {
+    flex: 1 1 auto;
+    color: var(--dark);
+    background-color: rgba(250, 250, 250, .16);
+    backdrop-filter: blur(8px);
+    --webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--dark);
+
+    &::placeholder {
+        color: rgba(26, 26, 26, .5);
+    }
+}
+
+.search-button {
+    color: var(--light);
+    background-color: var(--dark);
+    border: 1px solid var(--dark);
+    border-top-right-radius: .9rem;
+    border-bottom-right-radius: .9rem;
+}
+
+@media screen and (width >= 750px){
+    .search-group {
+        width: 70%;
+    }
+}
+
+@media screen and (width >= 1440px){
+    .search-group {
+        width: 50%;
+    }
+}
