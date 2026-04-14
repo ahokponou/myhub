@@ -36,10 +36,25 @@ function doSearch() {
     const searchEnginesElt = document.querySelector("#search-engines")
     const searchQueryElt = document.querySelector(".search-query")
     let engine = searchEnginesElt.value
-    let query = searchQueryElt.value
+    let query = searchQueryElt.value.trim()
     if (engine != '' && query != '') {
-        let url = engine + '?q=' + encodeURI(query)
+        let url
+
+        if (isQueryUrl(query)) {
+            const urlPattern = /(https?:\/\/)[a-zA-Z0-9_.-]+\.[a-z]{2,}/
+            url = urlPattern.test(query) ? 
+                    query : 
+                    'https://' + query
+        } else {
+            url = engine + '?q=' + encodeURI(query)
+        }
+
         window.open(url, '_blank', 'noopener,noreferrer')
         searchQueryElt.value = ''
     }
+}
+
+function isQueryUrl(query) {
+    const urlPattern = /^(https?:\/\/)?[a-zA-Z0-9_.-]+\.[a-z]{2,}(\/.*)?$/
+    return urlPattern.test(query)
 }
