@@ -39,6 +39,7 @@ function doSearch() {
     let query = searchQueryElt.value
     if (engine != '' && query != '') {
         let url = engine + '?q=' + encodeURI(query)
-        window.location.href = url
+        window.open(url, '_blank', 'noopener,noreferrer')
+        searchQueryElt.value = ''
     }
 }
