@@ -28,8 +28,7 @@ body {
 
 .app {
     display: grid;
-    align-items: center;
-    justify-items: center;
+    place-items: center;
     width: 100%;
     height: 100%;
     box-shadow: 0 0 4px 0 rgba(26, 26, 26, .16);
@@ -40,72 +39,82 @@ body {
 
 .search_container {
     width: 100%;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 1em;
 }
 
 .search-group {
-    width: 100%;
-    border-radius: 1rem;
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: center;
-}
-
-.select_container,
-.search-query,
-.search-button {
-   font-size: 1rem;
-   padding: 1rem;
+    justify-items: center;
+    grid-template-columns: auto 1fr auto;
 }
 
 .select_container {
-    padding: .8rem;
-    color: var(--dark);
+    padding: .25em 0 .5em;
+    color: var(--light);
     background-color: var(--dark);
     border: 1px solid var(--dark);
-    border-top-left-radius: .9rem;
-    border-bottom-left-radius: .9rem;
+    border-top-left-radius: 99em;
+    border-bottom-left-radius: 99em;
 }
 
 .search-engines {
-    font-size: 1rem;
     color: var(--light);
+    border: 1px solid transparent;
     background-color: transparent;
-    border: transparent;
 }
 
 .search-query {
-    flex: 1 1 auto;
+    width: 100%;
+    padding: 1em;
     color: var(--dark);
+    border: 1px solid var(--dark);
     background-color: rgba(250, 250, 250, .16);
     backdrop-filter: blur(8px);
-    --webkit-backdrop-filter: blur(8px);
-    border: 1px solid var(--dark);
 
     &::placeholder {
-        color: rgba(26, 26, 26, .5);
+        color: rgba(26, 26, 26, .75);
     }
 }
 
 .search-button {
+    padding: .8em 1em .95em;
     color: var(--light);
     background-color: var(--dark);
     border: 1px solid var(--dark);
-    border-top-right-radius: .9rem;
-    border-bottom-right-radius: .9rem;
+    border-top-right-radius: 99em;
+    border-bottom-right-radius: 99em;
 }
 
-@media screen and (width >= 750px){
-    .search-group {
-        width: 70%;
+@media screen and (width >= 800px) {
+    .search_container {
+        width: 75%;
+        margin-inline: auto;
+    }
+
+    .select_container {
+    padding: .25em .85em .5em;
     }
 }
 
-@media screen and (width >= 1440px){
-    .search-group {
+@media screen and (width >= 1024px) {
+    .search_container {
         width: 50%;
+        margin-inline: auto;
+    }
+
+    .select_container {
+        padding: .85em;
+    }
+
+    .search-engines,
+    .search-query,
+    .search-button {
+        font-size: 1em;
+    }
+
+    .search-query,
+    .search-button {
+        padding: 1em;
     }
 }
